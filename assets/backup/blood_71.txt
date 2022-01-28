@@ -1,0 +1,70 @@
+*drawer
+home
+profile
+latest request
+privacy police
+sign out
+
+*bottom_nav
+home
+search
+request
+donate
+profile
+
+*login
+-email
+-password
+
+*register
+-email
+-password
+
+*update profile
+-image
+-name
+-blood_group
+-phone
+-public email
+-address
+-thana
+-district
+
+*Request for blood
+-blood group
+-thana
+-date
+-time
+-hospital name
+-hospital address
+-reason
+-cotact person name
+-contact person phone
+
+*donate
+user
+donation date
+bag
+
+*search
+district + blood group wise
+thana wise + blood group wise
+blood group wise
+
+Color combination:
+primary white
+red 
+green
+
+
+sajib:
+home page + bottom navigation
+request for blood
+search
+donate
+
+robin:
+Loader page
+Login + register
+drawer
+update profile
