@@ -1,4 +1,4 @@
-import 'package:blood_71/src/config/routes.dart';
+import 'package:blood_71/src/theme/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -19,8 +19,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: 'home',
-        routes: Routes.getRoute(),
+        // initialRoute: 'home',
+        // routes: Routes.getRoute(),
+        home: const LoadingPage(),
       );
     });
   }
