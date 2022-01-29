@@ -1,4 +1,4 @@
-import 'package:blood_71/src/home_page.dart';
+import 'package:blood_71/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
