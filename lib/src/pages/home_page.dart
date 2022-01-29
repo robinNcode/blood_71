@@ -12,7 +12,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
+    // ignore: unused_local_variable
+    final _height = MediaQuery.of(context).size.height;
+    // ignore: unused_local_variable
+    final _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
@@ -20,15 +23,25 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.green,
       ),
       body: LayoutWidget(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Image.asset(
-                'logo/dummy.png',
-                height: (_size.height).h,
-                fit: BoxFit.cover,
-              ),
-            ],
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                SizedBox(
+                  height: 20.h,
+                  width: 10.w,
+                  child: Image.asset(
+                    'logo/dummy.png',
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                const Text('Your Blood Can, \n Save Lives'),
+              ],
+            ),
           ),
         ],
       ),
