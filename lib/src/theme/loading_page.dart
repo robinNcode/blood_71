@@ -35,7 +35,7 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
     });
     controller.repeat(reverse: false);
 
-    Timer(const Duration(seconds: 3), (){
+    Timer(const Duration(seconds: 5), (){
       Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
     });
 
@@ -57,8 +57,8 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
                     child: GestureDetector(
                       onTap: (){},
                       child: Image(
-                        image: const AssetImage('assets/images/logo.png'),
-                        width: MediaQuery.of(context).size.width/2.5,
+                        image: const AssetImage('assets/images/banner.png'),
+                        width: MediaQuery.of(context).size.width/2,
                         height: MediaQuery.of(context).size.height/2,
                       ),
                     ),
@@ -75,7 +75,7 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
                 ),
                 const Padding(
                   padding: EdgeInsets.all(10),
-                  child: Text('v1.0.0.16.(85)', style: TextStyle(fontSize: 22)),
+                  child: Text('v1.0.0+1', style: TextStyle(fontSize: 22)),
                 )
               ],
             ),

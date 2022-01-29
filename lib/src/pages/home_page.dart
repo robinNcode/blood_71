@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   child: Image.asset(
-                    'logo/dummy.png',
+                    'assets/logo/dummy.png',
                   ),
                 ),
                 const Text('Your Blood Can,\n Save Lives'),

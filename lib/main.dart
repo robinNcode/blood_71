@@ -1,4 +1,5 @@
 import 'package:blood_71/src/config/routes.dart';
+import 'package:blood_71/src/theme/loading_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,12 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Blood Ekattor',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: 'home',
-      routes: Routes.getRoute(),
+      //initialRoute: 'initial',
+      //routes: Routes.getRoute(),
+      home: const LoadingPage(),
     );
   }
 }
