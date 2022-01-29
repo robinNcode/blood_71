@@ -1,4 +1,6 @@
+import 'package:blood_71/src/widgets/layout_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,39 +12,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final _size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Blood 71'),
         backgroundColor: Colors.green,
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(20),
+      body: LayoutWidget(
+        children: [
+          Row(
+            children: [
+              Image.asset(
+                'logo/dummy.png',
+                height: (_size.height).h,
+                fit: BoxFit.cover,
               ),
-            ),
-            child: Column(
-              children: [
-                Container(
-                  height: 200,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                  ),
-                  child: Image.asset(
-                    'assets/logo/dummy.png',
-                  ),
-                ),
-                const Text('Your Blood Can,\n Save Lives'),
-              ],
-            ),
+            ],
           ),
-          Container(),
         ],
       ),
     );
