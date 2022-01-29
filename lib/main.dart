@@ -1,3 +1,4 @@
+import 'package:blood_71/src/config/routes.dart';
 import 'package:blood_71/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      initialRoute: 'home',
+      routes: Routes.getRoute(),
     );
   }
 }
