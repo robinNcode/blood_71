@@ -33,26 +33,12 @@ class _HomePageState extends State<HomePage> {
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
                     ),
-                    image: DecorationImage(
-                      image: AssetImage('assets/logo/dart.png'),
-                      fit: BoxFit.cover,
-                    ),
+                  ),
+                  child: Image.asset(
+                    'asstes/logo/dummy.png',
                   ),
                 ),
-                Container(
-                  height: 200,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                    image: DecorationImage(
-                      image: AssetImage('assets/logo/dart.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                const Text('Your Blood Can,\n Save Lives'),
               ],
             ),
           ),
