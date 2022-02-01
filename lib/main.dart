@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //initialRoute: 'initial',
-      //routes: Routes.getRoute(),
+      routes: Routes.getRoute(),
       home: const LoadingPage(),
     );
   }
