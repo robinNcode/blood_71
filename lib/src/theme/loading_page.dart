@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:blood_71/src/pages/home_page.dart';
+import 'package:blood_71/src/pages/login.dart';
 import 'package:flutter/material.dart';
 
 class LoadingPage extends StatelessWidget {
@@ -36,7 +36,7 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
     controller.repeat(reverse: false);
 
     Timer(const Duration(seconds: 5), (){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
     });
 
     super.initState();
