@@ -29,36 +29,23 @@ class _LoginPageState extends State<LoginPage>
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: _size.height/40, horizontal: _size.width/25),
-        child: Column(
+        child: ListView(
           children: [
+            Padding(
+              padding: EdgeInsets.all(_size.width / 10),
+              child: Image.asset(
+                'assets/images/banner.png',
+                width: _size.width,
+                height: _size.height/6,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 40),
             const Text(
               'Login',
-              style: TextStyle(fontSize: 30, color: Colors.red),
+              style: TextStyle(
+                  fontSize: 30, fontWeight: FontWeight.bold, color: Colors.red),
             ),
-            const SizedBox(height: 10),
-            RichText(
-              text: TextSpan(children: [
-                const TextSpan(
-                  text: 'Don\'t have account?  ',
-                  style: TextStyle(fontSize: 18, color: Colors.red),
-                ),
-                TextSpan(
-                  text: ' Register',
-                  style: const TextStyle(fontSize: 18, color: Colors.blue),
-                  recognizer: TapGestureRecognizer()..onTap = () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Register()));
-                  },
-                ),
-              ]),
-            ),
-            const SizedBox(height: 40),
-            Image.asset(
-              'assets/images/banner.png',
-              width: _size.width,
-              height: _size.height/6,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(height: 40),
             TextFormField(
               controller: _emailController,
               validator: (value) {
@@ -72,13 +59,13 @@ class _LoginPageState extends State<LoginPage>
               style: const TextStyle(color: Colors.red),
               decoration: const InputDecoration(
                 labelText: 'Email',
-                labelStyle: TextStyle(color: Colors.red),
-                hintStyle: TextStyle(color: Colors.red),
+                labelStyle: TextStyle(color: Colors.black),
+                hintStyle: TextStyle(color: Colors.black),
                 hintText: 'm.....@..com',
                 enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red)),
+                    borderSide: BorderSide(color: Colors.black)),
                 focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.yellow)),
+                    borderSide: BorderSide(color: Colors.blue)),
               ),
             ),
             const SizedBox(height: 10),
@@ -95,13 +82,13 @@ class _LoginPageState extends State<LoginPage>
               style: const TextStyle(color: Colors.red),
               decoration: InputDecoration(
                   labelText: 'Password',
-                  labelStyle: const TextStyle(color: Colors.red),
-                  hintStyle: const TextStyle(color: Colors.red),
+                  labelStyle: const TextStyle(color: Colors.black),
+                  hintStyle: const TextStyle(color: Colors.black),
                   hintText: 'password',
                   enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.red)),
+                      borderSide: BorderSide(color: Colors.black)),
                   focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.yellow)),
+                      borderSide: BorderSide(color: Colors.blue)),
                   suffixIcon: GestureDetector(
                     onTap: () {
                       _obscureText = !_obscureText;
@@ -137,7 +124,6 @@ class _LoginPageState extends State<LoginPage>
                           fontWeight: FontWeight.bold,
                           fontSize: 20),
                     ),
-                    SizedBox(width: 5),
                     Icon(
                       Icons.login,
                       color: Colors.white,
@@ -145,7 +131,23 @@ class _LoginPageState extends State<LoginPage>
                   ],
                 ),
               ),
-            )
+            ),
+            SizedBox(height: _size.height / 40),
+            RichText(
+              text: TextSpan(children: [
+                const TextSpan(
+                  text: 'Don\'t have account?  ',
+                  style: TextStyle(fontSize: 18, color: Colors.red),
+                ),
+                TextSpan(
+                  text: ' Register',
+                  style: const TextStyle(fontSize: 18, color: Colors.blue),
+                  recognizer: TapGestureRecognizer()..onTap = () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Register()));
+                  },
+                ),
+              ]),
+            ),
           ],
         ),
       ),
