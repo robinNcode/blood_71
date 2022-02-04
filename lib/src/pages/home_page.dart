@@ -1,6 +1,6 @@
+import 'package:blood_71/src/theme/drawer.dart';
 import 'package:blood_71/src/widgets/layout_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     final _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         title: const Text('Blood 71'),
         backgroundColor: Colors.green,
@@ -25,23 +26,21 @@ class _HomePageState extends State<HomePage> {
       body: LayoutWidget(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: 20.h,
-                  width: 10.w,
-                  child: Image.asset(
-                    'logo/dummy.png',
-                    fit: BoxFit.contain,
-                  ),
+          Row(
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/logo/dummy.png',
+                  height: (_size.height/4),
+                  fit: BoxFit.cover,
                 ),
-                const Text('Your Blood Can, \n Save Lives'),
-              ],
-            ),
+              ),
+              const Center(
+                child: Text('Blood Ekattor', style: TextStyle(
+                  fontFamily: 'Roboto',
+                ),),
+              )
+            ],
           ),
         ],
       ),
