@@ -12,17 +12,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Blood Ekatoor',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        // initialRoute: 'home',
-        // routes: Routes.getRoute(),
-        home: const LoadingPage(),
-      );
-    });
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Blood Ekattor',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      //initialRoute: 'initial',
+      routes: Routes.getRoute(),
+      home: const LoadingPage(),
+    );
   }
 }
