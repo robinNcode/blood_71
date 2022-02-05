@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
     // ignore: unused_local_variable
     final _width = MediaQuery.of(context).size.width;
 
+    var _size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: const CustomDrawer(),
       appBar: AppBar(

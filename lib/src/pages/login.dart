@@ -11,7 +11,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
+  // ignore: unused_field
   late AnimationController _animationController;
+  // ignore: unused_field
   late Animation _animation;
   late final TextEditingController _emailController = TextEditingController(text: '');
   late final TextEditingController _passwordController =

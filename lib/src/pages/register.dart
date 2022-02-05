@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
@@ -11,6 +12,7 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register>
     with SingleTickerProviderStateMixin {
+  // ignore: unused_field
   late AnimationController _animationController;
   late Animation _animation;
   late final TextEditingController _fullnameController =
@@ -41,7 +43,9 @@ class _RegisterState extends State<Register>
 
   void _submitFormRegister() {
     final isValid = _registerFormKey.currentState!.validate();
-    print(';Invalid $isValid');
+    if (kDebugMode) {
+      print(';Invalid $isValid');
+    }
   }
 
   @override
@@ -93,7 +97,7 @@ class _RegisterState extends State<Register>
                     TextSpan(
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => LoginPage())),
+                            MaterialPageRoute(builder: (context) => const LoginPage())),
                       text: 'Login',
                       style: const TextStyle(
                           color: Colors.blue,
@@ -209,7 +213,7 @@ class _RegisterState extends State<Register>
                           ),
                         ),
                       ),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       TextFormField(
                         textInputAction: TextInputAction.done,
                         onEditingComplete: () => _submitFormRegister(),
