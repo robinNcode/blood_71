@@ -46,7 +46,7 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.white,
           body: Center(
             child: Column(
               children: [
@@ -58,7 +58,7 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
                       onTap: (){},
                       child: Image(
                         image: const AssetImage('assets/images/banner.png'),
-                        width: MediaQuery.of(context).size.width/2,
+                        width: MediaQuery.of(context).size.width/1.5,
                         height: MediaQuery.of(context).size.height/2,
                       ),
                     ),
@@ -68,7 +68,7 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
                   width: MediaQuery.of(context).size.width/3,
                   child: LinearProgressIndicator(
                     value: controller.value,
-                    semanticsLabel: 'Pencil Box',
+                    semanticsLabel: 'Blood Ekattor',
                     color: Colors.black87,
                     backgroundColor: Colors.grey,
                   ),
