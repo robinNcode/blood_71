@@ -1,6 +1,10 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:blood_71/src/controllers/url_constants.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'package:cool_alert/cool_alert.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -33,9 +37,55 @@ class _RegisterState extends State<Register>
     super.dispose();
   }
 
-  void _submitFormRegister() {
+  Future<void> _submitFormRegister() async {
+
+    if(_passwordController.text != _confirmPassController.text){
+      return CoolAlert.show(
+          context: context,
+          type: CoolAlertType.error,
+          title: 'Error!',
+          text: 'Password and Confirm password is not same',
+          loopAnimation: false,
+          backgroundColor: Colors.white
+      );
+    }
+
     final isValid = _registerFormKey.currentState!.validate();
-    print(';Invalid $isValid');
+    if(isValid == true){
+      Map registerInfo = {
+        "email" : _emailController.text,
+        "password" : _passwordController.text
+      };
+
+      var url = Uri.parse(UrlConstants.registerUrl);
+      var response = await http.post(url, body: registerInfo);
+      var operation = jsonDecode(response.body);
+
+      if(operation["status"] == "success"){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const LoginPage(),
+          ),
+        );
+        return CoolAlert.show(
+          context: context,
+          type: CoolAlertType.success,
+          title: 'Success!',
+          text: '${operation["message"]}',
+        );
+      }
+      else {
+        return CoolAlert.show(
+            context: context,
+            type: CoolAlertType.error,
+            title: 'Invalid Username/Password',
+            text: '${operation["message"]}',
+            loopAnimation: false,
+            backgroundColor: Colors.white
+        );
+      }
+    }
   }
 
   @override
@@ -87,7 +137,7 @@ class _RegisterState extends State<Register>
                     controller: _emailController,
                     validator: (value) {
                       if (value!.isEmpty || !value.contains('@')) {
-                        return 'Plz Enter Valid Email';
+                        return 'Please Enter Valid Email';
                       } else {
                         return null;
                       }
@@ -161,7 +211,8 @@ class _RegisterState extends State<Register>
                     validator: (value) {
                       if (value!.isEmpty || value.length < 7) {
                         return 'Please Enter Valid Password';
-                      } else {
+                      }
+                      else {
                         return null;
                       }
                     },
