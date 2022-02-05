@@ -175,6 +175,12 @@ class _LoginPageState extends State<LoginPage>
           builder: (context) => HomePage(userInfo: userInfo),
         ),
       );
+      return CoolAlert.show(
+        context: context,
+        type: CoolAlertType.success,
+        title: 'Login Success',
+        text: 'WelCome, ${userInfo["name"]}',
+      );
     }
     else{
       return CoolAlert.show(
@@ -182,8 +188,8 @@ class _LoginPageState extends State<LoginPage>
         type: CoolAlertType.error,
         title: 'Invalid Username/Password',
         text: 'Please try Again',
-        loopAnimation: true,
-        backgroundColor: Colors.red
+        loopAnimation: false,
+        backgroundColor: Colors.white
       );
     }
   }
