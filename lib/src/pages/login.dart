@@ -1,6 +1,12 @@
+import 'dart:convert';
+import 'package:cool_alert/cool_alert.dart';
+import 'package:blood_71/src/controllers/url_constants.dart';
 import 'package:blood_71/src/pages/register.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,8 +23,6 @@ class _LoginPageState extends State<LoginPage>
   late final TextEditingController _passwordController =
   TextEditingController(text: '');
   bool _obscureText = true;
-
-
 
 
   @override
@@ -78,7 +82,6 @@ class _LoginPageState extends State<LoginPage>
                   return null;
                 }
               },
-              keyboardType: TextInputType.emailAddress,
               style: const TextStyle(color: Colors.red),
               decoration: InputDecoration(
                   labelText: 'Password',
@@ -105,7 +108,7 @@ class _LoginPageState extends State<LoginPage>
             const SizedBox(height: 40),
             MaterialButton(
               onPressed: (){
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => TaskScreen()));
+                checkAuthentication();
               },
               color: Colors.red,
               elevation: 0,
@@ -152,5 +155,36 @@ class _LoginPageState extends State<LoginPage>
         ),
       ),
     );
+  }
+
+  Future<void> checkAuthentication() async {
+    Map loginInfo = {
+      "email" : _emailController.text,
+      "password" : _passwordController.text
+    };
+
+    var url = Uri.parse(UrlConstants.loginAttemptUrl);
+    var response = await http.post(url, body: loginInfo);
+    var userInfo = jsonDecode(response.body);
+
+
+    if(userInfo["status"] != "error"){
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(userInfo: userInfo),
+        ),
+      );
+    }
+    else{
+      return CoolAlert.show(
+        context: context,
+        type: CoolAlertType.error,
+        title: 'Invalid Username/Password',
+        text: 'Please try Again',
+        loopAnimation: true,
+        backgroundColor: Colors.red
+      );
+    }
   }
 }
