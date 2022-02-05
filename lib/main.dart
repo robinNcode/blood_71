@@ -1,5 +1,5 @@
 import 'package:blood_71/src/config/routes.dart';
-import 'package:blood_71/src/theme/loading_page.dart';
+import 'package:blood_71/src/pages/blood_request_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       //initialRoute: 'initial',
       routes: Routes.getRoute(),
-      home: const LoadingPage(),
+      home: const BloodRequestPage(),
     );
   }
 }

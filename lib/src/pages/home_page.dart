@@ -32,14 +32,17 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: Image.asset(
                   'assets/logo/dummy.png',
-                  height: (_size.height/4),
+                  height: (_size.height / 4),
                   fit: BoxFit.cover,
                 ),
               ),
               const Center(
-                child: Text('Blood Ekattor', style: TextStyle(
-                  fontFamily: 'Roboto',
-                ),),
+                child: Text(
+                  'Blood Ekattor',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                  ),
+                ),
               )
             ],
           ),
