@@ -1,3 +1,4 @@
+import 'package:blood_71/src/pages/profile.dart';
 import 'package:blood_71/src/theme/loading_page.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,9 @@ class CustomDrawer extends StatelessWidget {
                     height: _size.height / 45,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
+                    },
                     child: Row(
                       children: const [
                         Icon(
