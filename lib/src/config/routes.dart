@@ -1,4 +1,3 @@
-import 'package:blood_71/src/pages/home_page.dart';
 import 'package:blood_71/src/theme/loading_page.dart';
 import 'package:flutter/material.dart';
 

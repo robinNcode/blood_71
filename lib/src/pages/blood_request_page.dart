@@ -104,13 +104,6 @@ class _BloodRequestPageState extends State<BloodRequestPage>
                     focusNode: _bloodGroupFocusNode,
                     keyboardType: TextInputType.emailAddress,
                     controller: _bloodGroupController,
-                    validator: (value) {
-                      if (value!.isEmpty || !value.contains('@')) {
-                        return 'Plz Enter Valid Email';
-                      } else {
-                        return null;
-                      }
-                    },
                     style: const TextStyle(color: Colors.red),
                     decoration: const InputDecoration(
                       hintText: 'Email',
