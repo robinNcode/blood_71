@@ -1,6 +1,7 @@
 import 'package:blood_71/src/config/routes.dart';
 import 'package:blood_71/src/pages/blood_request_page.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,15 +13,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Blood Ekattor',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      //initialRoute: 'initial',
-      routes: Routes.getRoute(),
-      home: const BloodRequestPage(),
-    );
+    return Sizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Blood Ekattor',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        //initialRoute: 'initial',
+        routes: Routes.getRoute(),
+        home: const BloodRequestPage(),
+      );
+    });
   }
 }

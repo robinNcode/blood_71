@@ -1,8 +1,10 @@
+import 'package:blood_71/src/models/blood_group_model.dart';
 import 'package:blood_71/src/theme/drawer.dart';
 import 'package:blood_71/src/widgets/blood_group_drop_down.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import 'login.dart';
 
@@ -29,7 +31,7 @@ class _BloodRequestPageState extends State<BloodRequestPage>
       TextEditingController(text: '');
   late final TextEditingController _reasonController =
       TextEditingController(text: '');
-  late final TextEditingController _contactPersonNameController =
+  late final TextEditingController _patientNameController =
       TextEditingController(text: '');
   late final TextEditingController _contactPersonPhoneController =
       TextEditingController(text: '');
@@ -55,7 +57,7 @@ class _BloodRequestPageState extends State<BloodRequestPage>
     _hospitalNameController.dispose();
     _hospitalAddressController.dispose();
     _reasonController.dispose();
-    _contactPersonNameController.dispose();
+    _patientNameController.dispose();
     _contactPersonPhoneController.dispose();
 
     super.dispose();
@@ -67,6 +69,8 @@ class _BloodRequestPageState extends State<BloodRequestPage>
       print(';Invalid $isValid');
     }
   }
+
+  static final List<String> items = BloodGroupModel.findAll();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +85,9 @@ class _BloodRequestPageState extends State<BloodRequestPage>
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
-            vertical: _size.height / 40, horizontal: _size.width / 25),
+          vertical: _size.height / 40,
+          horizontal: _size.width / 25,
+        ),
         child: ListView(
           children: [
             const Text(
@@ -89,14 +95,11 @@ class _BloodRequestPageState extends State<BloodRequestPage>
               style: TextStyle(
                   fontSize: 30, fontWeight: FontWeight.bold, color: Colors.red),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 3.h),
             Form(
               key: _bloodRequestFormKey,
               child: Column(
                 children: [
-                  const BloodGroupDropDown(
-                    dropdownvalue: 'A+',
-                  ),
                   TextFormField(
                     textInputAction: TextInputAction.next,
                     onEditingComplete: () =>
@@ -105,21 +108,28 @@ class _BloodRequestPageState extends State<BloodRequestPage>
                     keyboardType: TextInputType.emailAddress,
                     controller: _bloodGroupController,
                     style: const TextStyle(color: Colors.red),
+                    decoration: InputDecorationOutlined(label: 'Paitient Name'),
+                  ),
+                  SizedBox(height: 3.h),
+                  DropdownButtonFormField(
+                    value: 'A+',
+                    items: items.map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
                     decoration: const InputDecoration(
-                      hintText: 'Email',
-                      hintStyle: TextStyle(color: Colors.black),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      errorBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                      labelText: 'Blood Group',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5),
+                        ),
                       ),
                     ),
+                    onChanged: (String? value) {},
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 3.h),
                   MaterialButton(
                     onPressed: _submitFormRegister,
                     color: Colors.red,
@@ -177,6 +187,18 @@ class _BloodRequestPageState extends State<BloodRequestPage>
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  // ignore: non_constant_identifier_names
+  InputDecoration InputDecorationOutlined(String? labelText) {
+    return const InputDecoration(
+      labelText: labelText,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(5),
         ),
       ),
     );
