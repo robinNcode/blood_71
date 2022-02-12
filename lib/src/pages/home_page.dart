@@ -14,8 +14,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
+    // ignore: unused_local_variable
+    final _height = MediaQuery.of(context).size.height;
+    // ignore: unused_local_variable
+    final _width = MediaQuery.of(context).size.width;
 
+    var _size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: const CustomDrawer(),
       appBar: AppBar(
@@ -23,20 +27,24 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.green,
       ),
       body: LayoutWidget(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               Center(
                 child: Image.asset(
                   'assets/logo/dummy.png',
-                  height: (_size.height/4),
+                  height: (_size.height / 4),
                   fit: BoxFit.cover,
                 ),
               ),
               const Center(
-                child: Text('Blood Ekattor', style: TextStyle(
-                  fontFamily: 'Roboto',
-                ),),
+                child: Text(
+                  'Blood Ekattor',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                  ),
+                ),
               )
             ],
           ),
