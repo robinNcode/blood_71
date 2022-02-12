@@ -289,7 +289,7 @@ class _RegisterState extends State<Register>
                           ..onTap = () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginPage())),
+                                  builder: (context) => const LoginPage())),
                         text: 'Login',
                         style: const TextStyle(
                             color: Colors.blue,

@@ -1,6 +1,9 @@
+import 'dart:convert';
+import 'package:blood_71/src/controllers/url_constants.dart';
 import 'package:blood_71/src/theme/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:http/http.dart' as http;
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -10,15 +13,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  late List _files;
+  late List uploadedImage;
   Future _openFileExplorer() async {
-    _files = (await FilePicker.platform.pickFiles(
+    uploadedImage = (await FilePicker.platform.pickFiles(
       allowMultiple: false,
       type: FileType.image,
       allowedExtensions: null,
     ))!.files;
 
-    print('Loaded file path is ${_files!.first.path}');
+    print('Loaded file path is ${uploadedImage!.first.path}');
   }
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,27 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          updateProfile();
+        },
+        backgroundColor: Colors.red,
+        child: const Icon(Icons.done, color: Colors.white,),
+      ),
     );
+  }
+
+  Future updateProfile() async{
+    Map registerInfo = {
+      'image' : uploadedImage
+    };
+
+    var url = Uri.parse(UrlConstants.updateProfile);
+
+    var response =  await http.post(url, body: registerInfo);
+    var operation = jsonDecode(response.body);
+
+    print(operation);
   }
 }
 
