@@ -1,6 +1,5 @@
 import 'package:blood_71/src/models/blood_group_model.dart';
 import 'package:blood_71/src/theme/drawer.dart';
-import 'package:blood_71/src/widgets/blood_group_drop_down.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +107,7 @@ class _BloodRequestPageState extends State<BloodRequestPage>
                     keyboardType: TextInputType.emailAddress,
                     controller: _bloodGroupController,
                     style: const TextStyle(color: Colors.red),
-                    decoration: InputDecorationOutlined(label: 'Paitient Name'),
+                    //decoration: InputDecorationOutlined(label: 'Paitient Name'),
                   ),
                   SizedBox(height: 3.h),
                   DropdownButtonFormField(
@@ -195,7 +194,7 @@ class _BloodRequestPageState extends State<BloodRequestPage>
   // ignore: non_constant_identifier_names
   InputDecoration InputDecorationOutlined(String? labelText) {
     return const InputDecoration(
-      labelText: labelText,
+      //labelText: labelText,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(5),
