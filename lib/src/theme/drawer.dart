@@ -8,6 +8,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
+
     return Drawer(
       backgroundColor: Colors.white,
       child: ListView(
@@ -56,7 +57,10 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ProfilePage()));
                     },
                     child: Row(
                       children: const [
@@ -105,23 +109,21 @@ class CustomDrawer extends StatelessWidget {
                         ),
                         Text(
                           '    Privacy Policy',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Roboto'),
+                          style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),
                         )
                       ],
                     ),
                   ),
-                  const Divider(
-                  ),
+                  const Divider(),
                   SizedBox(
                     height: _size.height / 45,
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const LoadingPage())
-                      );
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoadingPage()));
                     },
                     child: Row(
                       children: const [
@@ -132,9 +134,7 @@ class CustomDrawer extends StatelessWidget {
                         ),
                         Text(
                           '    Sign Out',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Roboto'),
+                          style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),
                         )
                       ],
                     ),
