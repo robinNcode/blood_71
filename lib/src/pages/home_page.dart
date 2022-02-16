@@ -1,3 +1,4 @@
+import 'package:blood_71/src/theme/bottom_navigation_bar.dart';
 import 'package:blood_71/src/theme/drawer.dart';
 import 'package:blood_71/src/widgets/layout_widget.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +22,12 @@ class _HomePageState extends State<HomePage> {
 
     var _size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       drawer: const CustomDrawer(),
       appBar: AppBar(
-        title: const Text('Blood 71'),
-        backgroundColor: Colors.green,
+        title: const Text('Blood 71', style: TextStyle(color: Colors.red),),
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.red),
       ),
       body: LayoutWidget(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,6 +53,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      bottomNavigationBar: const CustomBottomNav(),
     );
   }
 }

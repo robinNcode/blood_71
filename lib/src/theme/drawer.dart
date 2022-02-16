@@ -1,3 +1,4 @@
+import 'package:blood_71/src/pages/home_page.dart';
 import 'package:blood_71/src/pages/profile.dart';
 import 'package:blood_71/src/theme/loading_page.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,10 @@ class CustomDrawer extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.push(context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage(userInfo: null,))
+                      );
                     },
                     child: Row(
                       children: const [
