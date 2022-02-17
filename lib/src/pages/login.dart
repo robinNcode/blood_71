@@ -5,7 +5,7 @@ import 'package:blood_71/src/pages/register.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -166,11 +166,19 @@ class _LoginPageState extends State<LoginPage>
     };
 
     var url = Uri.parse(UrlConstants.loginAttemptUrl);
+    /**
+     * To show loading indicator until getting
+     * any response from the api.
+     */
+    EasyLoading.show(
+      status: 'Please Wait..',
+    );
     var response = await http.post(url, body: loginInfo);
     var userInfo = jsonDecode(response.body);
 
 
     if(userInfo["status"] != "error"){
+      EasyLoading.dismiss();
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -185,11 +193,12 @@ class _LoginPageState extends State<LoginPage>
       );
     }
     else{
+      EasyLoading.dismiss();
       return CoolAlert.show(
         context: context,
         type: CoolAlertType.error,
-        title: 'Invalid Username/Password',
-        text: 'Please try Again',
+        title: 'Invalid Email/Password',
+        text: 'Please try Again..',
         loopAnimation: false,
         backgroundColor: Colors.white
       );

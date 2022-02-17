@@ -27,6 +27,7 @@ dev_dependencies:
   cool_alert: ^1.1.0
   file_picker: ^4.3.3
   curved_navigation_bar: ^1.0.3
+  flutter_easyloading: ^3.0.3
 
 flutter:
   # the material Icons class.
