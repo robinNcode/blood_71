@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:blood_71/src/controllers/url_constants.dart';
 import 'package:blood_71/src/models/blood_group_model.dart';
+import 'package:blood_71/src/theme/bottom_navigation_bar.dart';
 import 'package:blood_71/src/theme/drawer.dart';
 import 'package:blood_71/src/widgets/custom_inputfield.dart';
 import 'package:flutter/material.dart';
@@ -153,6 +154,7 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: Colors.red,
         child: const Icon(Icons.done, color: Colors.white,),
       ),
+      bottomNavigationBar: CustomBottomNav(pageNo: 4,),
     );
   }
 

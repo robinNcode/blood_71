@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Blood 71', style: TextStyle(color: Colors.red),),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.red),
+        elevation: 2,
       ),
       body: LayoutWidget(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,24 +37,17 @@ class _HomePageState extends State<HomePage> {
             children: [
               Center(
                 child: Image.asset(
-                  'assets/logo/dummy.png',
+                  'assets/images/home.png',
                   height: (_size.height / 4),
+                  width: _size.width - 40,
                   fit: BoxFit.cover,
                 ),
               ),
-              const Center(
-                child: Text(
-                  'Blood Ekattor',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                  ),
-                ),
-              )
             ],
           ),
         ],
       ),
-      bottomNavigationBar: const CustomBottomNav(),
+      bottomNavigationBar: CustomBottomNav(pageNo: 0),
     );
   }
 }

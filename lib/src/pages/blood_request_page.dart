@@ -1,4 +1,5 @@
 import 'package:blood_71/src/models/blood_group_model.dart';
+import 'package:blood_71/src/theme/bottom_navigation_bar.dart';
 import 'package:blood_71/src/theme/drawer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -188,6 +189,7 @@ class _BloodRequestPageState extends State<BloodRequestPage>
           ],
         ),
       ),
+      bottomNavigationBar: CustomBottomNav(pageNo: 2,),
     );
   }
 
