@@ -11,6 +11,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:cool_alert/cool_alert.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -56,10 +57,9 @@ class _ProfilePageState extends State<ProfilePage> {
     final isValid = _registerFormKey.currentState!.validate();
     if (isValid == true) {
       Map userUpdateInfo = {
-        "user_id": userId,
+        "user_id": "$userId",
         "name": _name.text,
         "image": "assets/images/uploads/${_name.text}.jpg",
-        "email": "${_name.text}@gmail.com",
         "blood_group": bloodGroup,
         "phone": _phone.text,
         "address": _address.text,
@@ -73,10 +73,31 @@ class _ProfilePageState extends State<ProfilePage> {
        * any response from the api.
        */
       EasyLoading.show(
-        status: 'Please Wait..',
+        status: 'Updating..!',
       );
       var response = await http.post(url, body: userUpdateInfo);
-      var userInfo = jsonDecode(response.body);
+      var info = jsonDecode(response.body);
+      EasyLoading.dismiss();
+
+      if(info["status"] == 'success'){
+        return CoolAlert.show(
+          context: context,
+          type: CoolAlertType.success,
+          title: 'Success!',
+          text: info["message"],
+        );
+      }
+      else{
+        return CoolAlert.show(
+            context: context,
+            type: CoolAlertType.error,
+            title: 'Something went wrong',
+            text: 'Please try Again..',
+            loopAnimation: false,
+            backgroundColor: Colors.white
+        );
+      }
+
     }
   }
 
