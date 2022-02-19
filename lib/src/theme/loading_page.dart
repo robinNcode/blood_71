@@ -51,11 +51,15 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
             child: Column(
               children: [
                 Expanded(
-                  flex: 3,
+                  flex: 2,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 30),
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const LoginPage())
+                        );
+                      },
                       child: Image(
                         image: const AssetImage('assets/images/banner.png'),
                         width: MediaQuery.of(context).size.width/1.5,
@@ -64,18 +68,19 @@ class _LoadingState extends State<Loading>  with TickerProviderStateMixin{
                     ),
                   ),
                 ),
+
                 SizedBox(
                   width: MediaQuery.of(context).size.width/3,
                   child: LinearProgressIndicator(
                     value: controller.value,
                     semanticsLabel: 'Blood Ekattor',
-                    color: Colors.black87,
+                    color: Colors.red,
                     backgroundColor: Colors.grey,
                   ),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(10),
-                  child: Text('v1.0.0+1', style: TextStyle(fontSize: 22)),
+                  child: Text('v1.0.0.0', style: TextStyle(fontSize: 16)),
                 )
               ],
             ),

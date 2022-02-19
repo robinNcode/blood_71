@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -160,6 +161,9 @@ class _LoginPageState extends State<LoginPage>
   }
 
   Future<void> checkAuthentication() async {
+    // Obtain shared preferences.
+    final prefs = await SharedPreferences.getInstance();
+
     Map loginInfo = {
       "email" : _emailController.text,
       "password" : _passwordController.text
@@ -176,13 +180,14 @@ class _LoginPageState extends State<LoginPage>
     var response = await http.post(url, body: loginInfo);
     var userInfo = jsonDecode(response.body);
 
-
     if(userInfo["status"] != "error"){
       EasyLoading.dismiss();
+
+      await prefs.setInt('userId', userInfo["user_id"]);
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePage(userInfo: userInfo),
+          builder: (context) => const HomePage(),
         ),
       );
       return CoolAlert.show(

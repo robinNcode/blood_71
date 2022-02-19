@@ -16,7 +16,7 @@ class CustomBottomNav  extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List _pages = [
-      const HomePage(userInfo: null),
+      const HomePage(),
       const SearchPage(),
       const BloodRequestPage(),
       const DonatePage(),

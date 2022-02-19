@@ -4,8 +4,7 @@ import 'package:blood_71/src/widgets/layout_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  final userInfo;
-  const HomePage({Key? key, required this.userInfo}) : super(key:key);
+  const HomePage({Key? key}) : super(key:key);
 
   @override
   _HomePageState createState() => _HomePageState();
