@@ -21,13 +21,12 @@ class _HomePageState extends State<HomePage> {
 
     var _size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       drawer: const CustomDrawer(),
       appBar: AppBar(
-        title: const Text('Blood 71', style: TextStyle(color: Colors.red),),
+        title: const Text('Blood 71', style: TextStyle(color: Colors.red)),
         backgroundColor: Colors.white,
+        elevation: 0,
         iconTheme: const IconThemeData(color: Colors.red),
-        elevation: 2,
       ),
       body: LayoutWidget(
         crossAxisAlignment: CrossAxisAlignment.start,
