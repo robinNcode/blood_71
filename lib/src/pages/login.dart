@@ -179,10 +179,9 @@ class _LoginPageState extends State<LoginPage>
     );
     var response = await http.post(url, body: loginInfo);
     var userInfo = jsonDecode(response.body);
+    EasyLoading.dismiss();
 
     if(userInfo["status"] != "error"){
-      EasyLoading.dismiss();
-
       await prefs.setInt('userId', userInfo["user_id"]);
       Navigator.push(
         context,
@@ -198,7 +197,6 @@ class _LoginPageState extends State<LoginPage>
       );
     }
     else{
-      EasyLoading.dismiss();
       return CoolAlert.show(
         context: context,
         type: CoolAlertType.error,
