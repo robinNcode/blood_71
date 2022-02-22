@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class CustomBottomNav  extends StatelessWidget {
-  var pageNo;
+  final pageNo;
 
   CustomBottomNav ({Key? key, required this.pageNo}) : super(key: key);
 

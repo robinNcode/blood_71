@@ -3,4 +3,5 @@ class UrlConstants{
   static const loginAttemptUrl = '$baseUrl/login';
   static const registerUrl = '$baseUrl/users';
   static const updateProfile = '$baseUrl/profiles';
+  static const bloodRequest = '$baseUrl/profiles';
 }
