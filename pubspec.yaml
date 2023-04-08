@@ -21,15 +21,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^1.0.0
-  font_awesome_flutter: ^9.2.0
+  flutter_lints: ^2.0.1
+  font_awesome_flutter: ^10.4.0
   http: ^0.13.4
-  cool_alert: ^1.1.0
-  file_picker: ^4.3.3
+  cool_alert: ^2.0.1
+  file_picker: ^5.2.7
   curved_navigation_bar: ^1.0.3
   flutter_easyloading: ^3.0.3
   shared_preferences: ^2.0.13
   flutter_datetime_picker: ^1.5.1
+  file: ^6.1.4
 
 flutter:
   # the material Icons class.
